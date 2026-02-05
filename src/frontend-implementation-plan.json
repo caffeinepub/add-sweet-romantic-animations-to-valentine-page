@@ -1,0 +1,68 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Sweeter romantic animations and transitions for the Valentine flow",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Add a subtle ambient romantic background animation (floating hearts/particles) visible on both the question and success screens without blocking interaction.",
+      "acceptanceCriteria": [
+        "On both screens (pre-accept and accepted), an ambient background animation is visible and feels romantic (e.g., slowly floating hearts).",
+        "The animation does not block clicking/tapping the Yes button or interacting with the page (background elements must not capture pointer events).",
+        "The animation performs smoothly on typical mobile/tablet browsers (no obvious stutter during normal interaction)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a shared ambient background layer rendered for both the question and success states (e.g., an absolutely-positioned container with multiple lightweight heart/particle elements). Ensure the layer uses pointer-events: none and sits behind interactive content. Keep it within the existing single-page Valentine flow (no new pages/routing)."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Implement CSS keyframes and utility classes for the ambient floating hearts/particles (including reduced-motion fallbacks via prefers-reduced-motion). Ensure the background animation is GPU-friendly (transform/opacity) and does not intercept pointer events."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add smooth, polished transitions when switching from the question screen to the success screen after clicking Yes (fade/scale for the main content).",
+      "acceptanceCriteria": [
+        "Clicking the Yes button triggers a noticeable but subtle transition (fade and/or scale) into the success UI.",
+        "No layout jumps or overlapping elements occur during the transition."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Refactor the current accepted conditional render into a small state machine that supports an animated transition (e.g., animate the question card out, then mount/animate the success card in). Ensure both states share a consistent layout wrapper to avoid layout jumps, and synchronize the state switch with the CSS animation duration."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add CSS classes/keyframes for card/content enter/exit transitions (fade + slight scale/translate). Include reduced-motion handling to disable or simplify transitions when the user prefers reduced motion."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add romantic micro-interactions: enhance Yes button hover/tap feedback and add a playful wiggle cue for the evasive No button without changing its evasive behavior.",
+      "acceptanceCriteria": [
+        "The Yes button has an additional sweet micro-interaction on hover/tap in addition to the existing scale effect.",
+        "The No button still moves away on hover/touch/focus as it currently does, and also includes a short playful motion effect that does not prevent it from moving."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Use the shadcn-ui Button component (already in use) to keep consistent styling while adding a new class hook for enhanced hover/active feedback on the Yes button (e.g., glow/shimmer overlay) and apply a short wiggle class to the No button immediately before/while it repositions. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add CSS for the Yes button micro-interaction (e.g., subtle glow/shimmer using pseudo-elements and opacity/transform) and a short wiggle keyframe for the No button that can be triggered via a class toggle. Ensure animations don’t interfere with the No button’s existing movement logic and include reduced-motion fallbacks."
+        }
+      ]
+    }
+  ]
+}

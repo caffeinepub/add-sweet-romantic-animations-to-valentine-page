@@ -1,0 +1,15 @@
+{
+  "backend/main.mo": "Empty Motoko actor with no logic.",
+  "feature_evidence.json": "Feature evidence report mapping romantic animation features to affected frontend files and components.",
+  "frontend-file-summaries.txt": "Text file containing prewritten summaries for key frontend files and their roles.",
+  "frontend/index.css": "Tailwind base theme defining OKLCH color variables, light/dark mode tokens, and global border/background styles.",
+  "frontend/index.html": "Basic HTML entrypoint loading the React app via main.tsx.",
+  "frontend/src/App.tsx": "Main Valentine interaction UI with floating hearts, animated transitions, Yes/No button behaviors, and success screen.",
+  "frontend/src/hooks/useActor.ts": "React hook that initializes and refreshes a backend actor based on Internet Identity authentication.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Context and provider managing Internet Identity login, stored identities, statuses, and AuthClient configuration.",
+  "frontend/src/index.css": "Global Tailwind styles with romantic color palette, animations, floating hearts, and utility classes.",
+  "frontend/src/lib/utils.ts": "Utility merging classNames using clsx and tailwind-merge.",
+  "frontend/src/main.tsx": "React entrypoint setting up QueryClient, InternetIdentityProvider, and rendering App.",
+  "frontend/tailwind.config.js": "Configures Tailwind with dark mode, custom OKLCH color variables, extended animations, and plugins for typography, container queries, and animations.",
+  "project_state.json": "Defines the project's scaffold state, listing existing ICP dapp features, versions, and enhancement feature metadata."
+}

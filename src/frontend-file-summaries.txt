@@ -1,0 +1,7 @@
+{
+  "frontend/src/App.tsx": "Main Valentine's Day proposal page with enhanced animations including floating hearts background, smooth content transitions between question/success screens, Yes button glow effect, and No button wiggle animation with evasive positioning logic.",
+  "frontend/src/index.css": "Global styles with romantic pink OKLCH color palette, comprehensive animation system including floating hearts, content transitions, button micro-interactions (glow/wiggle), and reduced-motion accessibility support.",
+  "frontend/tailwind.config.js": "Tailwind configuration with extended border radius (1.5rem) for softer romantic aesthetic and maintained OKLCH color system integration.",
+  "frontend/src/components/ui/button.tsx": "Reusable Button component using Radix UI Slot and class-variance-authority for consistent styling with multiple variants (default, destructive, outline, secondary, ghost, link) and sizes.",
+  "frontend/src/lib/utils.ts": "Utility function for merging Tailwind CSS classes using clsx and tailwind-merge to handle conditional styling."
+}
